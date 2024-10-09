@@ -1,0 +1,47 @@
+.verso {
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.mote {
+    color: red;
+    font-weight: bold;
+}
+
+.avatar, .poeta img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: purple;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px 0;
+}
+
+th {
+    background-color: #f4b400;
+    color: white;
+    padding: 10px;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
