@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bando da Pedra do Sol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Header -->
+    <header class="bg-gray-800 p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Bando da Pedra do Sol</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#sobre" class="hover:text-gray-400">Sobre</a></li>
+                    <li><a href="#eventos" class="hover:text-gray-400">Eventos</a></li>
+                    <li><a href="#galeria" class="hover:text-gray-400">Galeria</a></li>
+                    <li><a href="#contato" class="hover:text-gray-400">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Sobre a Banda -->
+    <section id="sobre" class="py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Sobre a Banda</h2>
+            <p class="text-lg text-gray-400">Mais que uma Banda, um Bando! Sobrevivendo no calor do sertão e fazendo um som!</p>
+
+        </div>
+    </section>
+
+    <!-- Seção Eventos -->
+    <section id="eventos" class="bg-gray-800 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Próximos Eventos</h2>
+            <ul class="space-y-4">
+                <li class="text-lg">20 de Outubro - Festival de Música, Caicó</li>
+                <li class="text-lg">5 de Novembro - Teatro Municipal, Jardim de Piranhas</li>
+                <li class="text-lg">12 de Dezembro - Patos Shopping, Patos</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Seção Galeria -->
+    <section id="galeria" class="py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Galeria</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Substitua as URLs das imagens pelas suas -->
+                <img src="https://media.istockphoto.com/id/912112596/pt/vetorial/rock-people.jpg?s=612x612&w=0&k=20&c=1Dvh9lbGBTvpaKDYdk86n7A3uD__BX-TL0jMNBEwjoU=" alt="Imagem 1" class="w-full h-64 object-cover rounded-lg">
+                <img src="https://media.istockphoto.com/id/912112596/pt/vetorial/rock-people.jpg?s=612x612&w=0&k=20&c=1Dvh9lbGBTvpaKDYdk86n7A3uD__BX-TL0jMNBEwjoU=" alt="Imagem 2" class="w-full h-64 object-cover rounded-lg">
+                <img src="https://media.istockphoto.com/id/912112596/pt/vetorial/rock-people.jpg?s=612x612&w=0&k=20&c=1Dvh9lbGBTvpaKDYdk86n7A3uD__BX-TL0jMNBEwjoU=" alt="Imagem 3" class="w-full h-64 object-cover rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="bg-gray-800 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Contato</h2>
+            <p class="text-lg text-gray-400">Entre em contato com a banda para shows e eventos:</p>
+            <form class="mt-6">
+                <input type="text" placeholder="Seu Nome" class="p-3 rounded-lg bg-gray-700 border-none w-full max-w-md mb-4 text-white" />
+                <input type="email" placeholder="Seu Email" class="p-3 rounded-lg bg-gray-700 border-none w-full max-w-md mb-4 text-white" />
+                <textarea placeholder="Sua Mensagem" class="p-3 rounded-lg bg-gray-700 border-none w-full max-w-md h-32 text-white mb-4"></textarea>
+                <button type="submit" class="bg-blue-600 p-3 rounded-lg text-white hover:bg-blue-500">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-400">&copy; 2024 Nome da Banda. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
