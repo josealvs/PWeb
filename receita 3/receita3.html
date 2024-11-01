@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+      <style>
+         /* Fade-out e fade-in */
+         .fade {
+            transition: opacity 0.5s;
+         }
+         .hidden {
+            opacity: 0;
+         }
+         .visible {
+            opacity: 1;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="botaoContainer">
+         <button id="botaoCarregar">Carregar cerveja</button>
+      </div>
+      <div id="conteudoCerveja" class="fade hidden"></div>
+   </body>   
+
+   <script>
+      let visivel = false;
+
+      function carregarDiv() {
+         let div = document.getElementById("conteudoCerveja");
+         div.classList.toggle("hidden", visivel);
+         div.classList.toggle("visible", !visivel);
+
+         if (!visivel) {
+            div.innerHTML = `<h1>Guinness</h1>`;
+         } else {
+            div.innerHTML = "";
+         }
+
+         visivel = !visivel;
+      }
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", carregarDiv);
+   </script>
+</html>

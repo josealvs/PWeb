@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">  
+      <style>
+         /* Estilização para as divs e a tabela */
+         .cerveja-div {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f0e68c;
+            border: 1px solid #d2b48c;
+            border-radius: 5px;
+            text-align: center;
+         }
+         table {
+            width: 100%;
+            border-collapse: collapse;
+         }
+         th, td {
+            padding: 10px;
+            border: 1px solid #d2b48c;
+            text-align: center;
+         }
+         th {
+            background-color: #f4a460;
+         }
+      </style>    
+   </head>
+
+   <body>
+      <div id="botoes">
+         <button id="botaoCarregar">Carregar cervejas</button>
+         <button id="botaoOrdenar">Mostrar cervejas ordenadas</button>
+         <button id="botaoEmbaralhar">Embaralhar cervejas</button>
+      </div>
+      <div id="meu-amor"></div>            
+   </body>   
+
+   <script>
+      let cervejas = ["Guinness", "Desperados", "Becks"];
+
+      function transformarParaDiv(item) {
+         return `<div class="cerveja-div">${item}</div>`;
+      }
+
+      function transformarParaTabela() {
+         let tableHtml = `<table><tr><th>Cerveja</th></tr>`;
+         cervejas.forEach(cerveja => {
+            tableHtml += `<tr><td>${cerveja}</td></tr>`;
+         });
+         tableHtml += `</table>`;
+         return tableHtml;
+      }
+
+      function carregarDiv() {
+         let div = document.getElementById("meu-amor");
+         div.innerHTML = cervejas.map(transformarParaDiv).join("");
+      }
+
+      function carregarTabela() {
+         let div = document.getElementById("meu-amor");
+         div.innerHTML = transformarParaTabela();
+      }
+
+      function ordenarCervejas() {
+         cervejas.sort();
+         carregarTabela();
+      }
+
+      function embaralharCervejas() {
+         cervejas.sort(() => Math.random() - 0.5);
+         carregarTabela();
+      }
+
+      document.getElementById("botaoCarregar").addEventListener("click", carregarDiv);
+      document.getElementById("botaoOrdenar").addEventListener("click", ordenarCervejas);
+      document.getElementById("botaoEmbaralhar").addEventListener("click", embaralharCervejas);
+   </script>
+</html>

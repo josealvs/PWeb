@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe 06</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container">
+
+    <div>
+        <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>
+
+    <div id="cervejasDiv"></div>
+
+    <script>
+        let cervejas = [
+            {
+                name: "Budweiser",
+                alcohol: "10%",
+                style: "Lager",
+                ibu: "45"
+            },
+            {
+                name: "Corona",
+                alcohol: "6%",
+                style: "Pale Lager",
+                ibu: "25"
+            },
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "Pilsen",
+                ibu: "20"
+            }
+        ];
+
+        const carregarDiv = (
+            cs,
+            divId = "cervejasDiv",
+            colHeaders = ["Nome", "Álcool", "Estilo", "Amargor"],
+            props = ["name", "alcohol", "style", "ibu"]
+        ) => {
+            const div = document.getElementById(divId);
+            let tableHtml = `<table><thead><tr>${colHeaders.map(header => `<th>${header}</th>`).join('')}</tr></thead><tbody>`;
+
+            tableHtml += cs.map(item =>
+                `<tr>${props.map(prop => `<td>${item[prop] || 'N/A'}</td>`).join('')}</tr>`
+            ).join('');
+            tableHtml += `</tbody></table>`;
+            div.innerHTML = tableHtml;
+        };
+
+        let botao = document.getElementById("botaoCarregar");
+        botao.addEventListener("click", () => carregarDiv(cervejas));
+
+    </script>
+</body>
+
+
+</html>
