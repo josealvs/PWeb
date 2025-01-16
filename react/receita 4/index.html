@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receita 1 React</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+        class Cabecalho extends React.Component {
+            render() {
+                return <h1>{this.props.titulo}</h1>;
+            }
+        }
+
+        class TabelaBebidas extends React.Component {
+            render() {
+                return (
+                    <table>
+                        <thead>
+                            <tr>
+                                {this.props.cabecalhos.map((cabecalho, index) => (
+                                    <th key={index}>{cabecalho}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.props.bebidas.map((bebida, index) => (
+                                <tr key={index}>
+                                    {bebida.map((item, subIndex) => (
+                                        <td key={subIndex}>{item}</td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                );
+            }
+        }
+
+        class BotaoMostrar extends React.Component {
+            render() {
+                return <button onClick={this.props.onClick}>Mostrar Tabela</button>;
+            }
+        }
+
+        class Rodape extends React.Component {
+            render() {
+                return <footer><p>{this.props.texto}</p></footer>;
+            }
+        }
+
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { mostrarTabela: false };
+            }
+
+            render() {
+                const cabecalhos = ["Empresa", "Marca", "Origem"];
+                const bebidas = [
+                    ["Havana", "Engenho Anísio Santiago", "Brasil"],
+                    ["Velho Barreiro", "Reserva 51", "Brasil"],
+                    ["Pitú", "Pura", "Brasil"],
+                    ["Samanaú", "Pura", "Caicó"],
+
+                ];
+
+                return (
+                    <div>
+                        <Cabecalho titulo="Minha tabela de bebidas" />
+                        <BotaoMostrar onClick={() => this.setState({ mostrarTabela: true })} />
+                        {this.state.mostrarTabela && <TabelaBebidas cabecalhos={cabecalhos} bebidas={bebidas} />}
+                        <Rodape texto="© 2024 Todas as bebidas reservadas" />
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+
+</html>

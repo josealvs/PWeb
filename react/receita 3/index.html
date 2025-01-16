@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Receita 3 React</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+        class Cabecalho extends React.Component {
+            render() {
+                return <h1>{this.props.titulo}</h1>;
+            }
+        }
+
+        class TabelaBebidas extends React.Component {
+            render() {
+                return (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Marca</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.props.bebidas.map((bebida, index) => (
+                                <tr key={index}>
+                                    <td>{bebida.empresa}</td>
+                                    <td>{bebida.marca}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                );
+            }
+        }
+
+        class BotaoMostrar extends React.Component {
+            render() {
+                return <button onClick={this.props.onClick}>Mostrar Tabela</button>;
+            }
+        }
+
+        class Rodape extends React.Component {
+            render() {
+                return <footer><p>{this.props.texto}</p></footer>;
+            }
+        }
+
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { mostrarTabela: false };
+            }
+
+            render() {
+                const bebidas = [
+                    { empresa: "Havana", marca: "Engenho Anísio Santiago" },
+                    { empresa: "Velho Barreiro", marca: "Reserva 51" },
+                    { empresa: "Pitú", marca: "Pura" },
+                ];
+
+                return (
+                    <div>
+                        <Cabecalho titulo="Minha tabela de bebidas" />
+                        <BotaoMostrar onClick={() => this.setState({ mostrarTabela: true })} />
+                        {this.state.mostrarTabela && <TabelaBebidas bebidas={bebidas} />}
+                        <Rodape texto="© 2024 Todas as bebidas reservadas" />
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+
+</html>
